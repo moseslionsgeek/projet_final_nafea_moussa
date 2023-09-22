@@ -43,7 +43,7 @@ Route::get('/allproduitWM', function () {
 
 
 Route::middleware('auth' , 'role:webmaster' )->group(function () {    
-    // page webmaster Produit
+    // webmaster Produit
     Route::get("/allproduitWM", [ProduitWCntoller::class, "index"])->name('backend.allproduitWM');
     Route::delete("/backend/produit/{produit}/webmaster", [ProduitWCntoller::class, "destroyproduit"])->name('backendW.destroyproduit');
     Route::put("/backend/produit/{produit}/webmaster", [ProduitWCntoller::class, "updateproduit"])->name('backendW.updateproduit');
@@ -54,13 +54,13 @@ Route::middleware('auth' , 'role:webmaster' )->group(function () {
 });
 
 Route::middleware('auth' , 'role:admin' )->group(function () {    
-    // page admin User
+    // admin User
     Route::get("/alluser", [RoleeController::class, "index"])->name('backend.alluser');
 
     Route::delete("/backend/{user}", [RoleeController::class, "destroyuser"])->name('backend.destroyuser');
     Route::put("/backend/{user}", [RoleeController::class, "updateuser"])->name('backend.updateuser');   
     
-    // page admin produit
+    // admin produit
     Route::get("/allproduit", [ProduitController::class, "index"])->name('backend.allproduit');
 
     Route::delete("/backend/produit/{produit}", [ProduitController::class, "destroyproduit"])->name('backend.destroyproduit');

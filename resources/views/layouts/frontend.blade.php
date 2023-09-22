@@ -94,9 +94,8 @@
                                     @auth
                                         <div class=" d-flex ">
                                             <div class=" d-flex justify-content-center flex-column align-items-center">
-                                                <i class="fa-solid fa-user "></i>
-                                                {{ Auth::user()->name }}
-                                                
+                                                <i class="fa-solid fa-user"></i>    
+                                                {{ Auth::user()->name}}                                            
                                             </div>
                                             <form method="POST" action="{{ route('logout') }}">
                                                 @csrf
@@ -105,13 +104,13 @@
                                                     onclick="event.preventDefault();
                                                                 this.closest('form').submit();">
 
-                                                    <i class="fa-solid fa-right-from-bracket m-0 p-0"></i>
+                                                    <i class="fa-solid fa-power-off m-0 p-0"></i>
                                                 </x-dropdown-link>
                                             </form>
                                         </div>
                                     @else
                                         <a href="/login">
-                                            <i class="fa-solid fa-right-to-bracket"></i>
+                                            <i class="fa-solid ti-user"></i>
                                         </a>
                                     @endauth
                                 </div>

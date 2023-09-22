@@ -50,8 +50,8 @@
                         </div>
 
                         <div class="mb-3 d-none">
-                            <input name="createur" type="number" min="0" value="{{ $createur }}" class="form-control"
-                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input name="createur" type="number" min="0" value="{{ $createur }}"
+                                class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
 
                         <select name="categorie" class="form-select" aria-label="Default select example">
@@ -76,7 +76,7 @@
     </div>
 
 
-    
+
 
 
     <table class="table container mt-10 ">
@@ -108,8 +108,9 @@
                         {{ $produit->prix }}
                     </td>
                     <td>
-                        {{ $produit->image }}
 
+                        <img src={{ 'storage/imgs/' . $produit->image }} alt="" width='40' HEIGHT='40'
+                            srcset="">
                         <img src="" alt="">
                     </td>
                     <td>

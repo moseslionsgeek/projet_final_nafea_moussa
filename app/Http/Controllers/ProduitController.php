@@ -44,7 +44,7 @@ class ProduitController extends Controller
             "stock" => $request->stock,
             "categorie" => $request->categorie,
             "createur" => 1,
-            // "image" => $image->hashName(),
+            "image" => $image->hashName(),
         ];
 
         
