@@ -1,9 +1,15 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\mailController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ProduitWCntoller;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleeController;
+use App\Http\Controllers\showController;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,17 +23,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('frontend.home');
+// Route::get('/home', function () {
+//     return view('frontend.home');
+// })->name('frontend.home');
+
+Route::get('/shop',[CategoryController::class, "index"])->name("shop.index");
 
 Route::get('/contact', function () {
     return view('frontend.contact');
 })->name('contact');
 
-Route::get('/shop', function () {
-    return view('frontend.shop');
-});
+Route::get('/messagerie' , [HomeController::class , "boite"])->name("messagerie.boite");
+
+
 
 Route::get('/panier', function () {
     return view('frontend.panier');
@@ -36,10 +44,21 @@ Route::get('/panier', function () {
 Route::get('/coeur', function () {
     return view('frontend.coeur');
 });
+// ! home controller 
+Route::get("/", [HomeController::class, "index"])->name('home.index');
 
+// ? show produit
+Route::get("/show/{produit}", [showController::class, "showitem"])->name('show.produit');
+
+//---
+Route::post('/sendmail', [ContactController::class, 'store'])->name('mail.contact');
 Route::get('/allproduitWM', function () {
     return view('backend.allproduitWM');
 })->middleware(['auth', 'role:webmaster'])->name('backend.allproduitWM');
+
+// mailnewslettre
+Route::post('/newlettre', [mailController::class, 'sendMail'])->name('contact.newlettre');
+
 
 
 Route::middleware('auth' , 'role:webmaster' )->group(function () {    

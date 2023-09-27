@@ -16,6 +16,5 @@ class CategorieSeeder extends Seeder
         Categorie::create(['name'=>'Chaise en bois']);
         Categorie::create(['name'=>'Chaise en fer']);
         Categorie::create(['name'=>'Chaise en plastique']);
-
     }
 }

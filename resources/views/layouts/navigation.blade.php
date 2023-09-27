@@ -7,7 +7,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('frontend.home')" :active="request()->routeIs('frontend.home')">
+                    <x-nav-link :href="route('home.index')" :active="request()->routeIs('home.index')">
                         {{ __('Frontend') }}
                     </x-nav-link>
                 </div>
@@ -26,7 +26,7 @@
                 </div>
                 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('frontend.home')" :active="request()->routeIs('frontend.home')">
+                    <x-nav-link :href="route('messagerie.boite')" :active="request()->routeIs('messagerie.boite')">
                         {{ __('Boite de Messagerie') }}
                     </x-nav-link>
                 </div>
